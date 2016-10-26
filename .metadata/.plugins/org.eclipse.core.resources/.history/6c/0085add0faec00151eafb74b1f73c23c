@@ -1,0 +1,85 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.JTextField;
+
+public class PridobivaneWindow extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField ATF;
+	private JTextField pTF;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void init() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PridobivaneWindow frame = new PridobivaneWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public PridobivaneWindow() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 614, 432);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel TopLabel = new JLabel("Otchisleniq ot stoinostta na pridobivane");
+		TopLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		TopLabel.setBounds(40, 11, 364, 31);
+		contentPane.add(TopLabel);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 48, 236, 95);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblA = new JLabel("A= ");
+		lblA.setBounds(0, 0, 38, 30);
+		panel.add(lblA);
+		
+		ATF = new JTextField();
+		ATF.setBounds(21, 5, 51, 20);
+		panel.add(ATF);
+		ATF.setColumns(10);
+		
+		JLabel lblLv = new JLabel("lv");
+		lblLv.setBounds(82, 8, 46, 14);
+		panel.add(lblLv);
+		
+		JLabel lblP = new JLabel("p =");
+		lblP.setBounds(111, 8, 46, 14);
+		panel.add(lblP);
+		
+		pTF = new JTextField();
+		pTF.setBounds(140, 5, 38, 20);
+		panel.add(pTF);
+		pTF.setColumns(10);
+		
+		JLabel label = new JLabel("%");
+		label.setBounds(188, 8, 46, 14);
+		panel.add(label);
+		
+		JLabel lblT = new JLabel("t =");
+		lblT.setBounds(0, 52, 46, 14);
+		panel.add(lblT);
+	}
+}

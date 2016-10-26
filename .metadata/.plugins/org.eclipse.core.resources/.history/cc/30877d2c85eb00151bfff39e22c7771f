@@ -1,0 +1,221 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.UIManager;
+import javax.swing.JTabbedPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class FutureValueWindow extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField KTF;
+	private JTextField rTF;
+	private JTextField nTF;
+	private JTextField Obiknovena;
+	private JTextField ObiknovenAnuitet;
+	private JTextField DaljimAnuitet;
+	float K,r;
+	int n;
+	double Ko, Ka,Kd;
+
+	/**
+	 * Launch the application.
+	 */
+	public void init() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FutureValueWindow frame = new FutureValueWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public FutureValueWindow() {
+		setTitle("\u0421\u0442\u043E\u0439\u043D\u043E\u0441\u0442 \u043D\u0430 \u043F\u0430\u0440\u0438\u0442\u0435");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 606, 432);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JInternalFrame InputInternalFrame = new JInternalFrame("\u0412\u044A\u0432\u0435\u0434\u0435\u0442\u0435");
+		InputInternalFrame.setBounds(10, 52, 171, 133);
+		contentPane.add(InputInternalFrame);
+		InputInternalFrame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("\u041A =");
+		lblNewLabel.setBounds(10, 11, 46, 14);
+		InputInternalFrame.getContentPane().add(lblNewLabel);
+		
+		KTF = new JTextField();
+		KTF.setBounds(39, 8, 86, 20);
+		InputInternalFrame.getContentPane().add(KTF);
+		KTF.setColumns(10);
+		
+		JLabel lblR = new JLabel("r =");
+		lblR.setBounds(10, 41, 46, 14);
+		InputInternalFrame.getContentPane().add(lblR);
+		
+		rTF = new JTextField();
+		rTF.setBounds(39, 38, 86, 20);
+		InputInternalFrame.getContentPane().add(rTF);
+		rTF.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("n =");
+		lblNewLabel_1.setBounds(10, 69, 46, 14);
+		InputInternalFrame.getContentPane().add(lblNewLabel_1);
+		
+		nTF = new JTextField();
+		nTF.setBounds(39, 66, 86, 20);
+		InputInternalFrame.getContentPane().add(nTF);
+		nTF.setColumns(10);
+		
+		JLabel label = new JLabel("\u043B\u0432.");
+		label.setBounds(135, 11, 46, 14);
+		InputInternalFrame.getContentPane().add(label);
+		
+		JLabel label_1 = new JLabel("%");
+		label_1.setBounds(135, 41, 46, 14);
+		InputInternalFrame.getContentPane().add(label_1);
+		
+		JInternalFrame ValueBSInternalFrame = new JInternalFrame("\u0421\u0442\u043E\u0439\u043D\u043E\u0441\u0442 \u043D\u0430 \u0411\u0421");
+		ValueBSInternalFrame.setBounds(223, 52, 317, 133);
+		contentPane.add(ValueBSInternalFrame);
+		ValueBSInternalFrame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("\u041E\u0431\u0438\u043A\u043D\u043E\u0432\u0435\u043D\u0430");
+		lblNewLabel_2.setBounds(10, 11, 70, 14);
+		ValueBSInternalFrame.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("\u041E\u0431\u0438\u043A\u043D\u043E\u0432\u0435\u043D \u0430\u043D\u044E\u0438\u0442\u0435\u0442");
+		lblNewLabel_3.setBounds(10, 36, 122, 14);
+		ValueBSInternalFrame.getContentPane().add(lblNewLabel_3);
+		
+		JLabel label_2 = new JLabel("\u0414\u044A\u043B\u0436\u0438\u043C \u0430\u043D\u044E\u0438\u0442\u0435\u0442");
+		label_2.setBounds(10, 61, 103, 14);
+		ValueBSInternalFrame.getContentPane().add(label_2);
+		
+		Obiknovena = new JTextField();
+		Obiknovena.setBounds(142, 8, 130, 20);
+		ValueBSInternalFrame.getContentPane().add(Obiknovena);
+		Obiknovena.setColumns(10);
+		
+		ObiknovenAnuitet = new JTextField();
+		ObiknovenAnuitet.setBounds(142, 33, 130, 20);
+		ValueBSInternalFrame.getContentPane().add(ObiknovenAnuitet);
+		ObiknovenAnuitet.setColumns(10);
+		
+		DaljimAnuitet = new JTextField();
+		DaljimAnuitet.setBounds(142, 58, 130, 20);
+		ValueBSInternalFrame.getContentPane().add(DaljimAnuitet);
+		DaljimAnuitet.setColumns(10);
+		
+		JLabel FutureValueLabel = new JLabel("\u0411\u044A\u0434\u0435\u0449\u0430 \u0441\u0442\u043E\u0439\u043D\u043E\u0441\u0442 \u043D\u0430 \u043F\u0430\u0440\u0438\u0442\u0435");
+		FutureValueLabel.setBounds(155, 11, 205, 14);
+		contentPane.add(FutureValueLabel);
+		
+		JButton Calculate = new JButton("\u0418\u0437\u0447\u0438\u0441\u043B\u044F\u0432\u0430\u043D\u0435");
+		Calculate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				K = Integer.parseInt(KTF.getText());
+				r = Integer.parseInt(rTF.getText());
+			
+				n = Integer.parseInt(nTF.getText());
+				
+				if(KTF.getText() == " ") {K = 0;}
+				else if(rTF.getText() == " ") {r = 0;}
+				else if(nTF.getText() == " "){ n = 0;}
+				
+				else if(K == 0){
+					JOptionPane.showMessageDialog(null,"Molq vavedete K");
+				}
+				else if (r == 0){
+					JOptionPane.showMessageDialog(null,"Molq vavedete r");
+				}
+				else if (n == 0){
+					JOptionPane.showMessageDialog(null,"Molq vavedete n");
+				}
+				else if(K > 1000000000){
+					JOptionPane.showMessageDialog(null,"K nemoje da bade > 1 000 000 000");
+				}
+				else if(r == 100){
+					JOptionPane.showMessageDialog(null,"r nemoje da bade > 100");
+				}
+				else if(n == 360){
+					JOptionPane.showMessageDialog(null,"n nemoje da bade > 360");
+				}
+				else if( K>0 && K<1000000000 && r > 0 && r < 100 && n < 360 && n > 0){
+				
+					r = r/100;
+				
+			     Ko= (K*Math.pow((1+r),n));
+			      Ka= (K*(Math.pow((1+r),n)-1)/r);
+			      Kd= (Ka*(1+r));
+			      
+			      Obiknovena.setText(Double.toString(Ko));
+			      ObiknovenAnuitet.setText(Double.toString(Ka));
+			      DaljimAnuitet.setText(Double.toString(Kd));
+			      
+			      Obiknovena.setEditable(false);
+			      ObiknovenAnuitet.setEditable(false);
+			      DaljimAnuitet.setEditable(false );
+				}
+			      
+			}
+		});
+		Calculate.setBounds(155, 206, 129, 23);
+		contentPane.add(Calculate);
+		
+		JInternalFrame internalFrame = new JInternalFrame("New JInternalFrame");
+		internalFrame.setBounds(10, 256, 402, 102);
+		contentPane.add(internalFrame);
+		internalFrame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_5 = new JLabel("K - \u0421\u0442\u043E\u0439\u043D\u043E\u0441\u0442 \u043D\u0430 \u0438\u043D\u0432\u0435\u0441\u0442\u0438\u0440\u0430\u043D\u0435 (\u041A\u0430\u043F\u0438\u0442\u0430\u043B)");
+		lblNewLabel_5.setBounds(10, 11, 216, 20);
+		internalFrame.getContentPane().add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("r - \u041B\u0438\u0445\u0432\u0435\u043D \u043F\u0440\u043E\u0446\u0435\u043D\u0442");
+		lblNewLabel_6.setBounds(10, 42, 96, 14);
+		internalFrame.getContentPane().add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("n - \u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043D\u0430 \u043F\u0435\u0440\u0438\u043E\u0434\u0430");
+		lblNewLabel_7.setBounds(236, 14, 140, 14);
+		internalFrame.getContentPane().add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel("\u0411\u0421 - \u0411\u044A\u0434\u0435\u0449\u0430 \u0441\u0442\u043E\u0439\u043D\u043E\u0441\u0442");
+		lblNewLabel_8.setBounds(236, 42, 140, 14);
+		internalFrame.getContentPane().add(lblNewLabel_8);
+		
+		JButton Exit = new JButton("\u0418\u0437\u0445\u043E\u0434");
+		Exit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
+		Exit.setBounds(491, 360, 89, 23);
+		contentPane.add(Exit);
+		internalFrame.setVisible(true);
+		ValueBSInternalFrame.setVisible(true);
+		InputInternalFrame.setVisible(true);
+	}
+}

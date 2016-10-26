@@ -1,0 +1,82 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.GridBagLayout;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class MainWindow extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainWindow frame = new MainWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public MainWindow() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton StoinostPridobivaneButton = new JButton("Otchisleniq ot stoinostta na pridobivane");
+		StoinostPridobivaneButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PridobivaneWindow PW = new PridobivaneWindow();
+				PW.init();
+			}
+		});
+		StoinostPridobivaneButton.setBounds(46, 52, 321, 23);
+		contentPane.add(StoinostPridobivaneButton);
+		
+		JButton OstatachnaStoinostButton = new JButton("Otchisleniq ot balansovata ili ostatachna stoinost");
+		OstatachnaStoinostButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OstatachnaStoinostWindow OSW = new OstatachnaStoinostWindow();
+				OSW.init(); 
+			}
+		});
+		OstatachnaStoinostButton.setBounds(46, 113, 321, 23);
+		contentPane.add(OstatachnaStoinostButton);
+		
+		JButton AnticipativniButton = new JButton("Anticipativni amorizacionni otchisleniq");
+		AnticipativniButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AnticipativniWindow AW = new AnticipativniWindow();
+				AW.init();
+			}
+		});
+		AnticipativniButton.setBounds(46, 171, 321, 23);
+		contentPane.add(AnticipativniButton);
+		
+		JButton ExitButton = new JButton("Exit");
+		ExitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		ExitButton.setBounds(278, 228, 89, 23);
+		contentPane.add(ExitButton);
+	}
+}

@@ -1,0 +1,144 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class PridobivaneWindow extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField ATF;
+	private JTextField pTF;
+	private JTextField tTF;
+	private JTextField STF;
+	private JTextField ResultTF;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void init() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PridobivaneWindow frame = new PridobivaneWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public PridobivaneWindow() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 614, 432);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel TopLabel = new JLabel("Otchisleniq ot stoinostta na pridobivane");
+		TopLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		TopLabel.setBounds(130, 6, 364, 31);
+		contentPane.add(TopLabel);
+		
+		JLabel lblVhodniDanni = new JLabel("Vhodni danni");
+		lblVhodniDanni.setBounds(10, 31, 80, 14);
+		contentPane.add(lblVhodniDanni);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 48, 236, 95);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblA = new JLabel("A= ");
+		lblA.setBounds(10, 15, 38, 30);
+		panel.add(lblA);
+		
+		ATF = new JTextField();
+		ATF.setBounds(31, 20, 51, 20);
+		panel.add(ATF);
+		ATF.setColumns(10);
+		
+		JLabel lblLv = new JLabel("lv");
+		lblLv.setBounds(92, 23, 46, 14);
+		panel.add(lblLv);
+		
+		JLabel lblP = new JLabel("p =");
+		lblP.setBounds(132, 23, 29, 14);
+		panel.add(lblP);
+		
+		pTF = new JTextField();
+		pTF.setBounds(150, 20, 51, 20);
+		panel.add(pTF);
+		pTF.setColumns(10);
+		
+		JLabel label = new JLabel("%");
+		label.setBounds(205, 23, 46, 14);
+		panel.add(label);
+		
+		JLabel lblT = new JLabel("t =");
+		lblT.setBounds(10, 67, 46, 14);
+		panel.add(lblT);
+		
+		tTF = new JTextField();
+		tTF.setBounds(31, 64, 51, 20);
+		panel.add(tTF);
+		tTF.setColumns(10);
+		
+		JLabel lblGodini = new JLabel("Godini");
+		lblGodini.setBounds(92, 67, 46, 14);
+		panel.add(lblGodini);
+		
+		JLabel lblS = new JLabel("S =");
+		lblS.setBounds(132, 67, 17, 14);
+		panel.add(lblS);
+		
+		STF = new JTextField();
+		STF.setBounds(150, 64, 51, 20);
+		panel.add(STF);
+		STF.setColumns(10);
+		
+		JLabel lblLv_1 = new JLabel("lv");
+		lblLv_1.setBounds(205, 67, 46, 14);
+		panel.add(lblLv_1);
+		
+		JLabel lblIli = new JLabel("ili");
+		lblIli.setBounds(172, 45, 17, 20);
+		panel.add(lblIli);
+		
+		JButton CalcButton = new JButton("Izchislenie");
+		CalcButton.setBounds(10, 157, 89, 23);
+		contentPane.add(CalcButton);
+		
+		ResultTF = new JTextField();
+		ResultTF.setBounds(138, 158, 69, 20);
+		contentPane.add(ResultTF);
+		ResultTF.setColumns(10);
+		
+		JLabel lblS_1 = new JLabel("S =");
+		lblS_1.setBounds(109, 161, 24, 14);
+		contentPane.add(lblS_1);
+		
+		JLabel lblLv_2 = new JLabel("lv");
+		lblLv_2.setBounds(212, 161, 17, 14);
+		contentPane.add(lblLv_2);
+		
+		JButton ExitButton = new JButton("Exit");
+		ExitButton.setBounds(499, 360, 89, 23);
+		contentPane.add(ExitButton);
+		
+		JLabel lblIzchisleniDanni = new JLabel("Izchisleni Danni");
+		lblIzchisleniDanni.setBounds(403, 31, 101, 14);
+		contentPane.add(lblIzchisleniDanni);
+	}
+}

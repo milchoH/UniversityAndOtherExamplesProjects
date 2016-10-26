@@ -1,0 +1,86 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTabbedPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class AnticipativniWindow extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField pTF;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AnticipativniWindow frame = new AnticipativniWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public AnticipativniWindow() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel TopLabel = new JLabel("Anticipativni amortizacionni otchisleniq");
+		TopLabel.setBounds(26, 11, 376, 29);
+		TopLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		contentPane.add(TopLabel);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(10, 51, 414, 211);
+		contentPane.add(tabbedPane);
+		
+		JPanel panel = new JPanel();
+		tabbedPane.addTab("New tab", null, panel, null);
+		panel.setLayout(null);
+		
+		JLabel lblP = new JLabel("p=");
+		lblP.setBounds(10, 11, 25, 14);
+		panel.add(lblP);
+		
+		pTF = new JTextField();
+		pTF.setBounds(45, 8, 86, 20);
+		panel.add(pTF);
+		pTF.setColumns(10);
+		
+		JLabel label = new JLabel("%");
+		label.setBounds(141, 11, 25, 14);
+		panel.add(label);
+		
+		JButton CalcButton = new JButton("Izchislenie");
+		CalcButton.setBounds(162, 7, 89, 23);
+		panel.add(CalcButton);
+		
+		JLabel lblPa = new JLabel("Pa = 100*p/100-p =");
+		lblPa.setBounds(10, 65, 106, 14);
+		panel.add(lblPa);
+		
+		textField = new JTextField();
+		textField.setBounds(126, 62, 86, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+	}
+}

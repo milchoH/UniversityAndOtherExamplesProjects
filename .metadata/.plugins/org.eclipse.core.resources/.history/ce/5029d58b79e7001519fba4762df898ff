@@ -1,0 +1,124 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JInternalFrame;
+import javax.swing.JToolBar;
+import java.awt.FlowLayout;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class CalcInterestWindow extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField PTF;
+	private JTextField rTF;
+	private JTextField nTF;
+	private JTable table;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CalcInterestWindow frame = new CalcInterestWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public CalcInterestWindow() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 698, 499);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JInternalFrame ChooseInternalFrame = new JInternalFrame("\u0418\u0437\u0431\u0435\u0440\u0435\u0442\u0435");
+		ChooseInternalFrame.setBounds(10, 21, 202, 103);
+		contentPane.add(ChooseInternalFrame);
+		ChooseInternalFrame.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JRadioButton SimpleInterestRB = new JRadioButton("\u041F\u0440\u043E\u0441\u0442\u0430 \u043B\u0438\u0445\u0432\u0430");
+		ChooseInternalFrame.getContentPane().add(SimpleInterestRB);
+		
+		JRadioButton HardcoreInterestRB = new JRadioButton("\u0421\u043B\u043E\u0436\u043D\u0430 \u043B\u0438\u0445\u0432\u0430");
+		ChooseInternalFrame.getContentPane().add(HardcoreInterestRB);
+		
+		JButton Calculate = new JButton("\u0418\u0437\u0447\u0438\u0441\u043B\u044F\u0432\u0430\u043D\u0435");
+		Calculate.setBounds(52, 135, 104, 23);
+		contentPane.add(Calculate);
+		
+		JInternalFrame InputInternalFrame = new JInternalFrame("\u0412\u044A\u0432\u0435\u0434\u0435\u0442\u0435");
+		InputInternalFrame.setBounds(270, 21, 167, 117);
+		contentPane.add(InputInternalFrame);
+		InputInternalFrame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("P =");
+		lblNewLabel.setBounds(10, 11, 46, 14);
+		InputInternalFrame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("r =");
+		lblNewLabel_1.setBounds(10, 36, 46, 14);
+		InputInternalFrame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("n =");
+		lblNewLabel_2.setBounds(10, 61, 46, 14);
+		InputInternalFrame.getContentPane().add(lblNewLabel_2);
+		
+		PTF = new JTextField();
+		PTF.setBounds(35, 8, 86, 20);
+		InputInternalFrame.getContentPane().add(PTF);
+		PTF.setColumns(10);
+		
+		rTF = new JTextField();
+		rTF.setBounds(35, 33, 86, 20);
+		InputInternalFrame.getContentPane().add(rTF);
+		rTF.setColumns(10);
+		
+		nTF = new JTextField();
+		nTF.setBounds(35, 61, 86, 20);
+		InputInternalFrame.getContentPane().add(nTF);
+		nTF.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("\u043B\u0432.");
+		lblNewLabel_3.setBounds(125, 11, 46, 14);
+		InputInternalFrame.getContentPane().add(lblNewLabel_3);
+		
+		JLabel label = new JLabel("%");
+		label.setBounds(131, 36, 46, 14);
+		InputInternalFrame.getContentPane().add(label);
+		
+		table = new JTable();
+		table.setToolTipText("");
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null},
+				{null, null, null, null},
+			},
+			new String[] {
+				"\u041F\u0435\u0440\u0438\u043E\u0434", "\u0418\u0437\u0447\u0438\u0441\u043B\u044F\u0432\u0430\u043D\u0435", "\u041B\u0438\u0445\u0432\u0430", "\u041E\u0431\u0449\u043E"
+			}
+		));
+		table.getColumnModel().getColumn(1).setPreferredWidth(136);
+		table.setBounds(10, 188, 280, 142);
+		contentPane.add(table);
+		InputInternalFrame.setVisible(true);
+		ChooseInternalFrame.setVisible(true);
+	}
+}

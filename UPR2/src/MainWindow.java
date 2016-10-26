@@ -1,0 +1,93 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class MainWindow extends JFrame {
+
+	private JPanel contentPane;
+	private JButton CurrentValue;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainWindow frame = new MainWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public MainWindow() {
+		setTitle("\u0421\u0438\u0441\u0442\u0435\u043C\u0438 \u0437\u0430 \u0431\u0438\u0437\u043D\u0435\u0441 \u0438 \u043C\u0435\u043D\u0438\u043D\u0434\u0436\u043C\u044A\u043D\u0442");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 436, 258);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton CalcInterest = new JButton("\u0418\u0437\u0447\u0438\u0441\u043B\u044F\u0432\u0430\u043D\u0435 \u043D\u0430 \u043F\u0440\u043E\u0441\u0442\u0430 \u0438 \u0441\u043B\u043E\u0436\u043D\u0430 \u043B\u0438\u0445\u0432\u0430");
+		CalcInterest.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CalcInterestWindow CIW = new CalcInterestWindow();
+				CIW.init();
+			}
+		});
+		CalcInterest.setBounds(89, 57, 257, 23);
+		contentPane.add(CalcInterest);
+		
+		JLabel topLabel = new JLabel("\u0421\u0442\u043E\u0439\u043D\u043E\u0441\u0442 \u043D\u0430 \u043F\u0430\u0440\u0438\u0442\u0435");
+		topLabel.setBounds(143, 11, 136, 14);
+		topLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(topLabel);
+		
+		JButton FutureValue = new JButton("\u0411\u044A\u0434\u0435\u0449\u0430 \u0441\u0442\u043E\u0439\u043D\u043E\u0441\u0442 \u043D\u0430 \u043F\u0430\u0440\u0438\u0442\u0435");
+		FutureValue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FutureValueWindow FVW = new FutureValueWindow();
+				FVW.init();
+			}
+		});
+		FutureValue.setBounds(89, 91, 257, 23);
+		contentPane.add(FutureValue);
+		
+		CurrentValue = new JButton("\u041D\u0430\u0441\u0442\u043E\u044F\u0449\u0430 \u0441\u0442\u043E\u0439\u043D\u043E\u0441\u0442 \u043D\u0430 \u043F\u0430\u0440\u0438\u0442\u0435");
+		CurrentValue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CurrentValueWindow CVW = new CurrentValueWindow();
+				CVW.inits();
+
+			}
+		});
+		CurrentValue.setBounds(89, 129, 257, 23);
+		contentPane.add(CurrentValue);
+		
+		JButton Exit = new JButton("\u0418\u0437\u0445\u043E\u0434");
+		Exit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		Exit.setBounds(324, 181, 89, 23);
+		contentPane.add(Exit);
+	}
+}

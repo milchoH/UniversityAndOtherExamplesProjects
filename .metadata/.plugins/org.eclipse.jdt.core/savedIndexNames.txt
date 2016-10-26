@@ -1,0 +1,7 @@
+INDEX VERSION 1.127+C:\Users\milcho\BiznesUPR\.metadata\.plugins\org.eclipse.jdt.core
+1657330681.index
+605835246.index
+3744749913.index
+3509648988.index
+750849350.index
+3958663841.index
